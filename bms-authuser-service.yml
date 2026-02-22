@@ -1,0 +1,42 @@
+server:
+   port: 4445
+
+abstract:
+   api:
+      emailUrl: https://emailreputation.abstractapi.com/v1/
+      phoneUrl: https://phoneintelligence.abstractapi.com/v1/
+# email-reputation-url: https://emailreputation.abstractapi.com/v1/?api_key=  //it shows the fraud risk also
+      keyEmail: ${ABSTRACT_API_KEY_EMAIL}
+# phone-intelligence-url: https://phoneintelligence.abstractapi.com/v1/?api_key= // same here also
+      keyMobile: ${ABSTRACT_API_KEY_MOBILE} 
+
+spring:
+   datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/bms_auth_user_service_db#?useSSL=false&serverTimezone=UTC
+      username: root
+      password: ${DB_PASSWORD}
+
+   jpa:
+      properties:
+         hibernate:
+            dialect: org.hibernate.dialect.MySQLDialect
+      show-sql: true
+      hibernate:
+         ddl-auto: update
+
+management:
+   endpoints:
+      web:
+         exposure:
+            include: health,info,metrics,beans
+   endpoint:
+      health:
+         show-details: always
+
+eureka:
+   client:
+      register-with-eureka: true
+      fetch-registry: true
+      service-url:
+         defaultZone: http://localhost:8761/eureka
