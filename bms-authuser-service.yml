@@ -3,6 +3,7 @@ server:
 
 jwt:
    secret: ${JWT_SECRET}
+   
 abstract:
    api:
       emailUrl: https://emailreputation.abstractapi.com/v1/
