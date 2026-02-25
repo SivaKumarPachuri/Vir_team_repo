@@ -1,7 +1,9 @@
 server:
    port: 8085
 
-
+jwt:
+ secret:
+ 
 spring:
    cloud:
       gateway:
