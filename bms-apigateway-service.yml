@@ -3,9 +3,6 @@ server:
 
 
 spring:
-   application:
-      name: bms-apigateway-service
-
    cloud:
       gateway:
          routes:
