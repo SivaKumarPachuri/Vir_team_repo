@@ -2,7 +2,7 @@ server:
    port: 4445
 
 jwt:
-   secret: ${JWT_SECRET:hLSN1I26tZ0i9uspyr9x8hSAIPaXVm6FsAcrH8c098g=}
+   secret: ${JWT_SECRET:kQYbKPa1Jw0MfOQCWbcutIjGOepBj5rOjZODJIK38uw=}
    
 abstract:
    api:
