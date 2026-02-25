@@ -1,0 +1,23 @@
+server:
+   port: 8085
+
+
+spring:
+   application:
+      name: bms-apigateway-service
+
+   cloud:
+      gateway:
+         routes:
+         -  id: auth-service
+            uri: lb://BMS-AUTHUSER-SERVICE
+            predicates:
+            - Path=/bms/auth/**
+            filters:
+            - JwtAuthentication
+
+
+eureka:
+   client:
+      register-with-eureka: true
+      fetch-registry: true
