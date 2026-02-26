@@ -2,7 +2,7 @@ server:
    port: 8085
 
 jwt:
- secret: ${JWT_SECRET:CgwB171ukGKm8SNEOK3b9qELz4g5RLe2NP+/X9It70Y=}
+ secret: ${JWT_SECRET:cea7NZZeVAH1KvG5cqasSdlsqW6sW35QZ+Gb4I9euSA=}
  
 spring:
    cloud:
