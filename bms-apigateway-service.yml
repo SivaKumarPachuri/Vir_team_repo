@@ -8,12 +8,12 @@ spring:
    cloud:
       gateway:
          routes:
-         -  id: bms-authuser-service
-            uri: lb://BMS-AUTHUSER-SERVICE
-            predicates:
-            - Path=/bms/auth/**
-            filters:
-            - JwtAuthenticationFilter
+         - id: bms-authuser-service
+           uri: lb://BMS-AUTHUSER-SERVICE
+           predicates:
+           - Path=/bms/auth/**
+           filters:
+           - JwtAuthenticationFilter
 
         - id: account-service
           uri: lb://ACCOUNT-MANAGEMENT-SERVICE
