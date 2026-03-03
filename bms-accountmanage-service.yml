@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:mysql://localhost:3306/accountmanagementdb
+    url: jdbc:mysql://localhost:3306/bms_account_management_service_db
     username: root
     password: siva@9652
     driver-class-name: com.mysql.cj.jdbc.Driver
