@@ -15,6 +15,13 @@ spring:
             filters:
             - JwtAuthenticationFilter
 
+        - id: account-service
+          uri: lb://ACCOUNT-MANAGEMENT-SERVICE
+          predicates:
+          - Path=/accounts/**
+          filters:
+          - JwtAuthenticationFilter 
+
 
 eureka:
    client:
