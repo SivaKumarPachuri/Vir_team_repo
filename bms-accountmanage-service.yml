@@ -1,0 +1,50 @@
+server:
+  port: 9292
+
+spring:
+  application:
+    name: ACCOUNT-MANAGEMENT-SERVICE
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/accountmanagementdb
+    username: root
+    password: siva@9652
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # use validate in production
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          secret-key: ${JWT_SECRET:RI9t7hmW0/FXdfES6yID6p8v56okBMr5XH/CYh6AcjU=}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+  instance:
+    prefer-ip-address: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
