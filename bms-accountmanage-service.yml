@@ -2,9 +2,6 @@ server:
   port: 9292
 
 spring:
-  application:
-    name: ACCOUNT-MANAGEMENT-SERVICE
-
   datasource:
     url: jdbc:mysql://localhost:3306/accountmanagementdb
     username: root
