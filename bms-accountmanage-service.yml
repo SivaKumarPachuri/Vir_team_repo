@@ -21,7 +21,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          secret-key: ${JWT_SECRET:IcZnhy+ZKv057PZy8NzRQsqbDxH9UqfavOLhzWNAMe4=}
+          secret-key: ${JWT_SECRET:MLkCnbowa+s9N0xMwV9uoihJYf48phsOmmpaON6K60Q=}
 
 management:
   endpoints:
