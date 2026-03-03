@@ -1,29 +1,28 @@
 server:
-   port: 8085
+  port: 8085
 
 jwt:
- secret: ${JWT_SECRET:MLkCnbowa+s9N0xMwV9uoihJYf48phsOmmpaON6K60Q=}
- 
+  secret: ${JWT_SECRET:MLkCnbowa+s9N0xMwV9uoihJYf48phsOmmpaON6K60Q=}
+
 spring:
-   cloud:
-      gateway:
-         routes:
-         - id: bms-authuser-service
-           uri: lb://BMS-AUTHUSER-SERVICE
-           predicates:
-           - Path=/bms/auth/**
-           filters:
-           - JwtAuthenticationFilter
+  cloud:
+    gateway:
+      routes:
+        - id: bms-authuser-service
+          uri: lb://BMS-AUTHUSER-SERVICE
+          predicates:
+            - Path=/bms/auth/**
+          filters:
+            - JwtAuthenticationFilter
 
         - id: account-service
           uri: lb://ACCOUNT-MANAGEMENT-SERVICE
           predicates:
-          - Path=/accounts/v1/**
+            - Path=/accounts/v1/**
           filters:
-          - JwtAuthenticationFilter 
-
+            - JwtAuthenticationFilter
 
 eureka:
-   client:
-      register-with-eureka: true
-      fetch-registry: true
+  client:
+    register-with-eureka: true
+    fetch-registry: true
