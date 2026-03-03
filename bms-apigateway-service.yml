@@ -16,7 +16,7 @@ spring:
             - JwtAuthenticationFilter
 
         - id: account-service
-          uri: lb://ACCOUNT-MANAGEMENT-SERVICE
+          uri: lb://BMS-ACCOUNTMANAGE-SERVICE
           predicates:
             - Path=/accounts/v1/**
           filters:
