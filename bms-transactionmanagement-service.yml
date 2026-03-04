@@ -2,6 +2,9 @@ server:
   port: 9393
 
 spring:
+  application:
+    name: bms-transaction-service
+
   datasource:
     url: jdbc:mysql://localhost:3306/bms_transaction_management_service_db
     username: root
@@ -35,13 +38,45 @@ management:
 eureka:
   client:
     register-with-eureka: true
-    fetch-registry: false
+    fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
 
   instance:
     prefer-ip-address: true
 
+
+resilience4j:
+
+  circuitbreaker:
+    instances:
+      accountService:
+        registerHealthIndicator: true
+        slidingWindowSize: 10
+        minimumNumberOfCalls: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 10s
+        permittedNumberOfCallsInHalfOpenState: 3
+
+  retry:
+    instances:
+      accountService:
+        maxAttempts: 3
+        waitDuration: 2s
+
+  bulkhead:
+    instances:
+      accountService:
+        maxConcurrentCalls: 10
+        maxWaitDuration: 5s
+
+  timelimiter:
+    instances:
+      accountService:
+        timeoutDuration: 3s
+
+
 logging:
   level:
     org.springframework.security: DEBUG
+    io.github.resilience4j: DEBUG
