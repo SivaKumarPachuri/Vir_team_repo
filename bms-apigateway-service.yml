@@ -15,12 +15,27 @@ spring:
           filters:
             - JwtAuthenticationFilter
 
+        - id: transaction-service
+          uri: lb://BMS-TRANSACTION-SERVICE
+          predicates:
+            - Path=/transactions/**
+          filters:
+            - JwtAuthenticationFilter
+            - name: CircuitBreaker
+              args:
+                name: transactionCircuitBreaker
+                fallbackUri: forward:/fallback/transaction
+
         - id: account-service
           uri: lb://BMS-ACCOUNTMANAGE-SERVICE
           predicates:
             - Path=/accounts/v1/**
           filters:
             - JwtAuthenticationFilter
+            - name: CircuitBreaker
+              args:
+                name: accountCircuitBreaker
+                fallbackUri: forward:/fallback/account
 
 eureka:
   client:
