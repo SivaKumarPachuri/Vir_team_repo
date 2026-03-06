@@ -16,7 +16,7 @@ spring:
             - JwtAuthenticationFilter
 
         - id: transaction-service
-          uri: lb://BMS-TRANSACTION-SERVICE
+          uri: lb://BMS-TRANSACTIONMANAGEMENT-SERVICE
           predicates:
             - Path=/transactions/v1/**
           filters:
