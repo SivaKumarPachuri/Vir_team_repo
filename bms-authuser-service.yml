@@ -16,9 +16,10 @@ abstract:
 spring:
    datasource:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3306/bms_auth_user_service_db#?useSSL=false&serverTimezone=UTC
+      #url: jdbc:mysql://localhost:3306/bms_auth_user_service_db#?useSSL=false&serverTimezone=UTC
+      url: jdbc:mysql://mysql:3306/bms_auth_user_service_db
       username: root
-      password: ${SPRING_DB_PASSWORD}
+      password: siva@9652
 
    jpa:
       properties:
@@ -42,4 +43,5 @@ eureka:
       register-with-eureka: true
       fetch-registry: true
       service-url:
-         defaultZone: http://localhost:8761/eureka
+         #defaultZone: http://localhost:8761/eureka
+         defaultZone: http://eureka-server:8761/eureka
