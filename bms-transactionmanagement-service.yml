@@ -6,6 +6,7 @@ spring:
     name: bms-transaction-service
 
   datasource:
+    #url: jdbc:mysql://localhost:3306/bms_transaction_management_service_db
     url: jdbc:mysql://localhost:3306/bms_transaction_management_service_db
     username: root
     password: siva@9652
@@ -41,6 +42,7 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://eureka-server:8761/eureka/
 
   instance:
     prefer-ip-address: true
